@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2><i class="fa fa-edit">Edit Issue</i></h2>
+        <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+          <div class="form-group">
+            <label for="description">Issue Description</label>
+            <input type="text" class="form-control" id="description" name="description" [(ngModel)]="issue.description" required minlength="3">
+          </div>
+          <div class="form-group">
+            <label for="severity">Severity</label>
+            <select class="form-control" name="severity" [ngModel]="issue.severity">
+              <option *ngFor="let sever of severity" [value]="sever">
+                {{sever}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" name="status" [ngModel]="issue.status">
+                  <option *ngFor="let stat of status" [value]="stat">
+                    {{stat}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                    <label for="CreatedDate">Creation date <i class="fa fa-calendar-alt"></i></label>
+                    <input type="date" class="form-control" id="CreatedDate" name="CreatedDate" [(ngModel)]="issue.CreatedDate" required>  
+                  </div>
+                  <div class="form-group">
+                        <label for="ResolvedDate">Resolved date <i class="fa fa-calendar-alt"></i></label>
+                        <input type="date" class="form-control" id="ResolvedDate" name="ResolvedDate" [(ngModel)]="issue.ResolvedDate" required>
+                        </div>
+        <div class="text text-center"><button type="submit" class="btn btn-info">Submit&nbsp;<i class="fa fa-save"></i></button></div>
+                        
+        </form>
+      </div>
+    </div>
+    
+   </div>
